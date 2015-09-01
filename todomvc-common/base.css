@@ -38,7 +38,7 @@ input[type="checkbox"] {
   outline: none;
 }
 
-#todoapp {
+.todoapp {
 	background: #fff;
 	background: rgba(255, 255, 255, 0.9);
 	margin: 130px 0 40px 0;
@@ -50,7 +50,7 @@ input[type="checkbox"] {
 				0 25px 50px 0 rgba(0, 0, 0, 0.15);
 }
 
-#todoapp:before {
+.todoapp:before {
 	content: '';
 	border-left: 1px solid #f5d6d6;
 	border-right: 1px solid #f5d6d6;
@@ -61,16 +61,16 @@ input[type="checkbox"] {
 	height: 100%;
 }
 
-#todoapp input::-webkit-input-placeholder {
+.todoapp input::-webkit-input-placeholder {
 	font-style: italic;
 }
 
-#todoapp input::-moz-placeholder {
+.todoapp input::-moz-placeholder {
 	font-style: italic;
 	color: #a9a9a9;
 }
 
-#todoapp h1 {
+.todoapp h1 {
 	position: absolute;
 	top: -120px;
 	width: 100%;
@@ -110,7 +110,7 @@ input[type="checkbox"] {
 	border-top-right-radius: 1px;
 }
 
-#new-todo,
+.new-todo,
 .edit {
 	position: relative;
 	margin: 0;
@@ -135,7 +135,7 @@ input[type="checkbox"] {
 	font-smoothing: antialiased;
 }
 
-#new-todo {
+.new-todo {
 	padding: 16px 16px 16px 60px;
 	border: none;
 	background: rgba(0, 0, 0, 0.02);
@@ -549,7 +549,7 @@ hr {
 		left: 8px;
 	}
 
-	.learn-bar #todoapp {
+	.learn-bar .todoapp {
 		width: 550px;
 		margin: 130px auto 40px auto;
 	}
