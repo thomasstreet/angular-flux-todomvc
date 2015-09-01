@@ -1,0 +1,7 @@
+<div ng-show="total > 0">
+    <span id="todo-count">
+        <strong>{{ itemsLeft }}</strong>
+        {{ itemsLeftPhrase }}
+    </span>
+    <button id="clear-completed" ng-click="onClearCompletedClick" ng-show="completed">Clear completed ({{ completed }})</button>
+</div>

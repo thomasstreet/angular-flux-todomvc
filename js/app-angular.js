@@ -11,11 +11,25 @@ module.exports = angular.module("todoapp", ['ui.router'])
 
     $stateProvider
       .state("todo", {
-        url: "/",
-        templateUrl: "js/views/Header.html",
-        controller: "HeaderController"
+        abstract:true,
+        templateUrl: "js/views/TodoApp.html",
+        controller: "TodoAppController"
       })
+      .state("todo.sections", {
+        url: "/",
+        views: {
+          'header@todo': {
+            templateUrl: "js/views/Header.html",
+            controller: 'HeaderController'
+          },
+          'mainSection': {
+            templateUrl: "js/views/MainSection.html"
+          }
+        }
+      });
 
   })
   .directive("todoTextInput", require("./directives/TodoTextInput.directive"))
-  .controller("HeaderController", ['$scope', require("./controllers/Header.controller")]);
+  .directive("footer", require("./directives/Footer.directive"))
+  .controller("HeaderController", ['$scope', require("./controllers/Header.controller")])
+  .controller("TodoAppController", ['$scope', '$timeout', require("./controllers/TodoApp.controller")]);
