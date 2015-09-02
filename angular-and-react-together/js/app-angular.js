@@ -4,6 +4,8 @@ var angular = require('angular');
 
 require('angular-ui-router');
 
+//configure our angular app
+//and it's dependent parts
 module.exports = angular.module("todoapp", ['ui.router'])
   .config(function($stateProvider, $urlRouterProvider) {
 

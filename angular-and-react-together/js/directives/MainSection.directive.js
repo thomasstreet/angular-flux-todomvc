@@ -4,13 +4,6 @@ var TodoActions = require('../actions/TodoActions');
 
 function MainSection() {
 
-  /**
-   * Event handler to mark all TODOs as complete
-   */
-  function _onToggleCompleteAll() {
-    TodoActions.toggleCompleteAll();
-  };
-
   return {
 
     templateUrl: 'js/views/MainSection.html',
@@ -22,20 +15,26 @@ function MainSection() {
 
     restrict: 'E',
 
-    link: function(scope) {
+    controller: function($scope) {
 
-      scope.onToggleCompleteAll = _onToggleCompleteAll;
+      /**
+       * Event handler to mark all TODOs as complete
+       */
+      function _onToggleCompleteAll() {
+        TodoActions.toggleCompleteAll();
+      };
 
-      scope.$watch('allTodos', function(newTodos) {
-        scope.enabled = newTodos && Object.keys(newTodos).length > 0 ? true : false;
+      $scope.onToggleCompleteAll = _onToggleCompleteAll;
+
+      $scope.$watch('allTodos', function(newTodos) {
+        $scope.enabled = newTodos && Object.keys(newTodos).length > 0 ? true : false;
       }, true);
 
-      scope.$watch('areAllComplete', function(complete) {
-        scope.complete = complete;
+      $scope.$watch('areAllComplete', function(complete) {
+        $scope.complete = complete;
       });
     }
   };
-
 };
 
 module.exports = MainSection;

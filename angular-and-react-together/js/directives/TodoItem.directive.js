@@ -19,14 +19,12 @@ function TodoItem() {
 
     controller: function($scope) {
 
-      var scope = $scope;
-
       function _onToggleComplete() {
-        TodoActions.toggleComplete(scope.todo);
+        TodoActions.toggleComplete($scope.todo);
       };
 
       function _onDoubleClick() {
-        scope.isEditing = true;
+        $scope.isEditing = true;
       };
 
       /**
@@ -36,22 +34,22 @@ function TodoItem() {
        * @param  {string} text
        */
       function _onSave(text) {
-        TodoActions.updateText(scope.todo.id, text);
-        scope.isEditing = false;
+        TodoActions.updateText($scope.todo.id, text);
+        $scope.isEditing = false;
       };
 
       function _onDestroyClick() {
-        TodoActions.destroy(scope.todo.id);
+        TodoActions.destroy($scope.todo.id);
       };
 
-      scope.isEditing = false;
-      scope.onSave = _onSave;
-      scope.onDoubleClick = _onDoubleClick;
-      scope.onDestroyClick = _onDestroyClick;
-      scope.onToggleComplete = _onToggleComplete;
+      $scope.isEditing = false;
+      $scope.onSave = _onSave;
+      $scope.onDoubleClick = _onDoubleClick;
+      $scope.onDestroyClick = _onDestroyClick;
+      $scope.onToggleComplete = _onToggleComplete;
 
-      scope.$watch('todo', function(newTodo) {
-        scope.complete = newTodo.complete;
+      $scope.$watch('todo', function(newTodo) {
+        $scope.complete = newTodo.complete;
       });
     }
   };

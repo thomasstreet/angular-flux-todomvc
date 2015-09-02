@@ -4,9 +4,6 @@ var ENTER_KEY_CODE = 13;
 
 function TodoTextInput() {
 
-  //var $scope;
-  //var _onSave;
-
   return {
 
     templateUrl: 'js/views/TodoTextInput.html',
@@ -22,12 +19,10 @@ function TodoTextInput() {
 
     controller: function($scope) {
 
-      var scope = $scope;
-      //$scope = scope;
-      var _onSave = scope.onSave();
+      var onSave = $scope.onSave();
 
       function _save() {
-        _onSave($scope.text);
+        onSave($scope.text);
         $scope.text = '';
       };
 
@@ -41,23 +36,23 @@ function TodoTextInput() {
       };
 
       function _onFocus() {
-        scope.text = scope.value;
+        $scope.text = $scope.value || '';
       };
 
       function _onBlur() {
         _save();
       };
 
-      scope.onKeyDown = _onKeyDown;
-      scope.onBlur = _onBlur;
-      scope.onFocus = _onFocus;
+      $scope.text = '';
+      $scope.onKeyDown = _onKeyDown;
+      $scope.onBlur = _onBlur;
+      $scope.onFocus = _onFocus;
 
-      scope.$watch('value', function(newValue) {
-        scope.text = newValue;
+      $scope.$watch('value', function(newValue) {
+        $scope.text = newValue || '';
       });
     }
   };
-
 };
 
 module.exports = TodoTextInput;
