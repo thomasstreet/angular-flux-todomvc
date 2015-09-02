@@ -19,7 +19,7 @@ var Header = React.createClass({
   render: function() {
     return (
       <header id="header">
-        <h1>todos</h1>
+        <h1>react todos</h1>
         <TodoTextInput
           id="new-todo"
           className="new-todo"
