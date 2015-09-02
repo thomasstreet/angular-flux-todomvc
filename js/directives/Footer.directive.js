@@ -1,6 +1,15 @@
 'use strict';
 
+var TodoActions = require('../actions/TodoActions');
+
 function Footer() {
+
+  /**
+   * Event handler to delete all completed TODOs
+   */
+  function _onClearCompletedClick() {
+    TodoActions.destroyCompleted();
+  }
 
   function _update($scope, $timeout, todos) {
 
@@ -35,6 +44,10 @@ function Footer() {
     },
 
     restrict: 'E',
+
+    link: function(scope) {
+      scope.onClearCompletedClick = _onClearCompletedClick;
+    },
 
     controller: function($scope, $timeout) {
 

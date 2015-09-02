@@ -1,13 +1,13 @@
 "use strict";
 
-var TodoActions = require('../actions/TodoActions');
 var TodoStore = require('../stores/TodoStore');
 
 function TodoAppController($scope, $timeout) {
 
   function _update() {
     $timeout(function() {
-       $scope.allTodos = TodoStore.getAll();
+      $scope.allTodos = TodoStore.getAll();
+      $scope.areAllComplete = TodoStore.areAllComplete();
     });
   };
 
