@@ -6,8 +6,8 @@
            ng-model="complete" />
     <label for="toggle-all">Mark all as complete</label>
     <ul id="todo-list">
-        <li ng-repeat="todo in allTodos" ng-class="{ 'completed': todo.complete }" ng-class="{ 'editing': isEditing }" key="{{ todo.id }}">
-            <todo-item todo="todo"></todo-item>
+        <li ng-repeat="todo in allTodos" ng-class="{ 'completed': todo.complete, 'editing': isEditing }" key="{{ todo.id }}">
+            <todo-item todo="todo" is-editing="isEditing"></todo-item>
         </li>
     </ul>
 </section>

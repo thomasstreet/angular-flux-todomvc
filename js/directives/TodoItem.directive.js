@@ -11,12 +11,15 @@ function TodoItem() {
     scope: {
       placeholder: '@',
       todo: '=',
+      isEditing: '=',
       onSave: '&'
     },
 
     restrict: 'E',
 
-    link: function(scope) {
+    controller: function($scope) {
+
+      var scope = $scope;
 
       function _onToggleComplete() {
         TodoActions.toggleComplete(scope.todo);
