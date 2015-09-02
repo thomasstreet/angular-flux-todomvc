@@ -1,8 +1,8 @@
-"use strict";
+'use strict';
 
 var TodoActions = require('../actions/TodoActions');
 
-function HeaderController($scope) {
+function Header() {
 
   /**
    * Event handler called within TodoTextInput.
@@ -16,7 +16,17 @@ function HeaderController($scope) {
     }
   };
 
-  $scope.onSave = _onSave;
+  return {
+
+    templateUrl: 'js/views/Header.html',
+
+    restrict: 'E',
+
+    controller: function($scope) {
+      $scope.onSave = _onSave;
+    }
+  };
+
 };
 
-module.exports = HeaderController;
+module.exports = Header;
